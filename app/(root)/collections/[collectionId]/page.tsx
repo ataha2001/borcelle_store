@@ -21,6 +21,8 @@ const CollectionDetails = async ({params}: {params: {collectionId: string}}) => 
   )
 }
 
-export const dynamic = "force-dynamic"
+
 
 export default CollectionDetails
+
+export const dynamic = "force-dynamic";
