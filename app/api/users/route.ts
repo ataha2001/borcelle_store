@@ -4,9 +4,11 @@ import { auth } from "@clerk/nextjs/server";
 
 import { NextRequest, NextResponse } from "next/server";
 
+
 export const GET = async (req: NextRequest) => {
+  const { userId } = auth()
+  const searchParams = { clerkId: userId }
   try {
-    const { userId } = auth()
 
     if (!userId) {
       return new NextResponse(JSON.stringify({ message: "Unauthorized" }), { status: 401 })
@@ -14,7 +16,7 @@ export const GET = async (req: NextRequest) => {
 
     await connectToDB()
 
-    let user = await User.findOne({ clerkId: userId })
+    let user = await User.findOne(searchParams)
 
     // When the user sign-in for the 1st, immediately we will create a new user for them
     if (!user) {
