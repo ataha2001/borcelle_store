@@ -20,7 +20,7 @@ export const GET = async (req: NextRequest) => {
 
     // When the user sign-in for the 1st, immediately we will create a new user for them
     if (!user) {
-      user = await User.create({ clerkId: userId })
+      user = await User.create(searchParams)
       await user.save()
     }
 
