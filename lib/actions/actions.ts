@@ -1,8 +1,14 @@
+import { Collection } from 'mongoose'
 import React from 'react'
 
 export const getCollections = async () => {
-    const collections = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
-    return await collections.json()
+    const collections = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`).then((response)=>{
+      response.json()
+    })
+    console.log("collections", collections);
+    
+    return collections
+    // await collections.json()
   }
   
   export const getCollectionDetails = async (collectionId: string) => {
@@ -12,8 +18,10 @@ export const getCollections = async () => {
 
 
   export const getProducts = async () => {
-    const products = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
-    return await products.json()
+    const products = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`).then((response)=>{
+      response.json()
+    })
+    return products
   }
   
 // export const getProductDetails = async(productId: string)=>{
@@ -33,9 +41,11 @@ export const getSearchProducts = async (query : string) =>{
 
 export const getOrders = async (customerId: string) =>{
   
-  const orders = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/customers/${customerId}`)
+  const orders = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/customers/${customerId}`).then((response)=>{
+    response.json()
+  })
   
-  return await orders.json()
+  return orders
 } 
 
 export const getRelatedProducts = async (productId: string) => {
