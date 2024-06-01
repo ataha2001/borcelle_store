@@ -5,12 +5,12 @@ import Image from "next/image"
 const Orders = async () => {
     const { userId } = auth()
 
-    const orders = await getOrders(userId as string)
+    const orders: any = await getOrders(userId as string)
     
   return (
     <div className="px-10 py-5 max-sm:px-3">
         <p className="text-heading3-bold my-10">Your Orders</p>
-        {!orders || orders.length === 0 && (
+        {!orders || orders?.length === 0 && (
             <p className="text-body-bold text-gray-600 my-5">your have no Orders yet.</p>
         )}
         <div className="flex flex-col gap-10">
