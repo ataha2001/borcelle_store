@@ -28,13 +28,13 @@ const Cart = () => {
       if (!user) {
         router.push("sign-in");
       } else {
-        console.log("test check");
+        ("test check");
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
           method: "POST",
           body: JSON.stringify({ cartItems: cart.cartItems, customer }),
         });
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         window.location.href = data.url;
       }
     } catch (err) {

@@ -1,13 +1,14 @@
 
 export const getCollections = async () => {
-  const collections = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
-  return await collections.json()
+  const collectionsfetch = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
+  const collections = await collectionsfetch.json()
+  return collections
 }
 
 
 // export const getCollections = async () => {
 //     // const collections = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
-//     console.log(`${process.env.NEXT_PUBLIC_API_URL}/collections`);
+//     (`${process.env.NEXT_PUBLIC_API_URL}/collections`);
     
 //     const collections = await fetch(`https://borcelle-admin-prr6eby9l-ashrafs-projects-17880677.vercel.app/api/collections`)
     
