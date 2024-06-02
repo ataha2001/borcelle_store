@@ -2,7 +2,6 @@
 import { getCollections } from "@/lib/actions/actions";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const Collections = async () => {
   const collections = await getCollections();

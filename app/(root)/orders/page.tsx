@@ -5,7 +5,7 @@ import Image from "next/image"
 const Orders = async () => {
     const { userId } = auth()
 
-    const orders: any = await getOrders(userId as string)
+    const orders = await getOrders(userId as string)
     
   return (
     <div className="px-10 py-5 max-sm:px-3">

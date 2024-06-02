@@ -1,15 +1,19 @@
-import { Collection } from 'mongoose'
-import React from 'react'
+
 
 export const getCollections = async () => {
-    const collections = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`).then((response)=>{
-      response.json()
-    })
-    console.log("collections", collections);
+  const collections = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
+  return await collections.json()
+}
+
+
+// export const getCollections = async () => {
+//     // const collections = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
+//     console.log(`${process.env.NEXT_PUBLIC_API_URL}/collections`);
     
-    return collections
-    // await collections.json()
-  }
+//     const collections = await fetch(`https://borcelle-admin-prr6eby9l-ashrafs-projects-17880677.vercel.app/api/collections`)
+    
+//     return await collections.json()
+//   }
   
   export const getCollectionDetails = async (collectionId: string) => {
     const collection = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections/${collectionId}`)
@@ -18,10 +22,8 @@ export const getCollections = async () => {
 
 
   export const getProducts = async () => {
-    const products = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`).then((response)=>{
-      response.json()
-    })
-    return products
+    const products = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
+    return await products.json()
   }
   
 // export const getProductDetails = async(productId: string)=>{
@@ -41,11 +43,9 @@ export const getSearchProducts = async (query : string) =>{
 
 export const getOrders = async (customerId: string) =>{
   
-  const orders = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/customers/${customerId}`).then((response)=>{
-    response.json()
-  })
+  const orders = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/customers/${customerId}`)
   
-  return orders
+  return await orders.json()
 } 
 
 export const getRelatedProducts = async (productId: string) => {
