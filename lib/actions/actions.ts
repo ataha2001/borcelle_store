@@ -1,6 +1,6 @@
 
 export const getCollections = async () => {
-  const collectionsfetch = await fetch(`/collections`)
+  const collectionsfetch = await fetch(`/api/collections`)
   // const collectionsfetch = await fetch(process.env.NEXT_PUBLIC_API_URL +'/collections')
   const collections = await collectionsfetch.json()
   return collections
