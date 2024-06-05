@@ -1,4 +1,6 @@
 
+export const runtime = "edge"
+
 export const getCollections = async () => {
   const collectionsfetch = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
   // const collectionsfetch = await fetch(process.env.NEXT_PUBLIC_API_URL +'/collections')
