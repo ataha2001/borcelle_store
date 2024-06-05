@@ -1,6 +1,6 @@
 
 export const getCollections = async () => {
-  const collectionsfetch = await fetch(`${process.env.NEXT_PUBLIC_API_KEY}/collections`)
+  const collectionsfetch = await fetch(`https://borcelle-admin-prr6eby9l-ashrafs-projects-17880677.vercel.app/api/collections`)
   // const collectionsfetch = await fetch(process.env.NEXT_PUBLIC_API_URL +'/collections')
   const collections = await collectionsfetch.json()
   return collections
