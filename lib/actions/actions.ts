@@ -6,9 +6,9 @@ export const getCollections = async () => {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL
   console.log("ApiUrl=", apiUrl);
   const collections= await fetch(`${apiUrl}/collections`)
-  .then(res=> res.json())
-  .then(data=> console.log(data))
-  .catch(error=> console.error('Error fetching data', error);
+    .then(res=> res.json())
+    .then(data=> console.log(data))
+    .catch(error=> console.error('Error fetching data', error))
   
   
   // const collectionsfetch = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
