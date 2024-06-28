@@ -4,16 +4,16 @@ export const runtime = "edge"
 
 export const getCollections = async () => {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL
-  console.log("ApiUrl=", apiUrl);
-  const collections= await fetch(`${apiUrl}/collections`)
-    .then(res=> res.json())
-    .then(data=> console.log(data))
-    .catch(error=> console.error('Error fetching data', error))
+  // console.log("ApiUrl=", apiUrl);
+  // const collectionsfetch= await fetch(`${apiUrl}/collections`)
+  //   .then(res=> res.json())
+  //   .then(data=> console.log(data))
+  //   .catch(error=> console.error('Error fetching data', error))
   
   
-  // const collectionsfetch = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
+  const collectionsfetch = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
   // const collectionsfetch = await fetch('https://borcelle-admin-prr6eby9l-ashrafs-projects-17880677.vercel.app/api/collections')
-  // const collections = await collectionsfetch.json()
+  const collections = await collectionsfetch.json()
   return collections
 }
 
