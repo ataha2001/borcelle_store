@@ -1,4 +1,4 @@
-import { log } from "console"
+
 
 export const runtime = "edge"
 
@@ -11,9 +11,11 @@ export const getCollections = async () => {
   //   .catch(error=> console.error('Error fetching data', error))
   
   
-  const collectionsfetch = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`)
+  const collectionsfetch = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`,)
+      
+  
   // const collectionsfetch = await fetch('https://borcelle-admin-prr6eby9l-ashrafs-projects-17880677.vercel.app/api/collections')
-  const collections = await collectionsfetch.json()
+  const collections =  await collectionsfetch.json()
   return collections
 }
 

@@ -1,20 +1,40 @@
+'use client'
 import Collections from "@/components/Collections";
 import ProductsList from "@/components/ProductsList";
 import Image from "next/image";
+import { useEffect } from "react";
 
-export default async function Home() {
+export default function Home() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL
   console.log("ApiUrl=", apiUrl);
-  const collectionsfetch= await fetch(`${apiUrl}/collections`)
-    .then(res=> res.json())
-    .then(data=> console.log(data))
-    .catch(error=> console.error('Error fetching data', error))
+
+  useEffect(() => {
+    getData()
+  }, [])
   
+  const getData = async()=>{
+
+    const collectionsfetch= await fetch(`${apiUrl}/collections`,{  
+      method:'GET',
+      mode:'no-cors',
+      headers: {  
+        
+        Accept: "application/json"  
+      }  
+    })
+    .then(res=>{ res.json()
+      console.log('res',res);
+      
+    })
+    .then(data=> console.log('data', data))
+    .catch(error=> console.error('Error fetching data', error))
+    
+  }
   return (
    <div>
     <Image src='/banner.png' alt="banner" width={2000} height={1000} className="w-screen"  />
     
-    <Collections />
+    {/* <Collections /> */}
     {/* <ProductsList /> */}
    </div>
   );
