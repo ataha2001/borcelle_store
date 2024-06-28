@@ -13,17 +13,20 @@ export default function Home() {
   }, [])
   
   const getData = async()=>{
+    
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
 
     const collectionsfetch= await fetch(`${apiUrl}/collections`,{  
       method:'GET',
-      mode:'no-cors',
-      headers: {  
-        
-        Accept: "application/json"  
-      }  
+      mode:'cors',
+      headers: corsHeaders, 
     })
     .then(res=>{ res.json()
-      console.log('res',res);
+      console.log('res',res.type);
       
     })
     .then(data=> console.log('data', data))
